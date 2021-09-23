@@ -1,13 +1,15 @@
 package com.ambit.project.ambit_energy;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@SpringBootTest
-class AmbitEnergyApplicationTests {
 
-	@Test
-	void contextLoads() {
+public class AmbitEnergyApplicationTests {
+
+	
+	
+	
+	public void contextLoads() {
 	}
 
 }

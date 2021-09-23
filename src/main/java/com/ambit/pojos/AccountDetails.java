@@ -1,20 +1,42 @@
 package com.ambit.pojos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
+@Table(name = "AMBIT_ENERGY")
 public class AccountDetails implements Comparable<AccountDetails>
 {
+	@Id
+	//@GeneratedValue
+	@Column(name="meter_Number")
+	private Integer meter_Number;
 	
-	private int MeterNumber;
-	private int BillingDays;
+	@Column(name="billing_Days")
+	private int billingDays;
+	
+	@Column(name="Actual_type")
 	private String Actualtype;
-	private PreviousMeterRead PreviousMeterRead;
-	private CurrentMeterRead CurrentMeterRead;
-	private int MeterMultiplier;
-	private int BilledUsage;
-	private int Demand;
-	private Customer customer;
+	
+	@Column(name="meter_Multiplier")
+	private int meterMultiplier;
+	
+	@Column(name="billed_Usage")
+	private int billedUsage;
+	
+	@Column(name="demand")
+	private int demand;
+	
+	@JsonFormat(pattern="YYYY-MM-DD")
+	private String test;
+	
 	
 	
 	
@@ -23,82 +45,102 @@ public class AccountDetails implements Comparable<AccountDetails>
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Customer getCustomer() {
-		return customer;
-	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 	
-	public AccountDetails(int meterNumber, int billingDays, String actualtype,
-			com.ambit.pojos.PreviousMeterRead previousMeterRead, com.ambit.pojos.CurrentMeterRead currentMeterRead,
-			int meterMultiplier, int billedUsage, int demand, Customer customer) {
+	
+	
+	
+	public AccountDetails(Integer meterNumber, int billingDays, String actualtype, int meterMultiplier, int billedUsage,
+			int demand, String test) {
 		super();
-		MeterNumber = meterNumber;
-		BillingDays = billingDays;
+		this.meter_Number = meterNumber;
+		this.billingDays = billingDays;
 		Actualtype = actualtype;
-		PreviousMeterRead = previousMeterRead;
-		CurrentMeterRead = currentMeterRead;
-		MeterMultiplier = meterMultiplier;
-		BilledUsage = billedUsage;
-		Demand = demand;
-		this.customer = customer;
+		this.meterMultiplier = meterMultiplier;
+		this.billedUsage = billedUsage;
+		this.demand = demand;
+		this.test = test;
 	}
 
-	
-	public int getMeterNumber() {
-		return MeterNumber;
+
+
+
+	public Integer getMeterNumber() {
+		return meter_Number;
 	}
-	public void setMeterNumber(int meterNumber) {
-		MeterNumber = meterNumber;
+
+
+
+	public void setMeterNumber(Integer meterNumber) {
+		this.meter_Number = meterNumber;
 	}
+
+
+
 	public int getBillingDays() {
-		return BillingDays;
+		return billingDays;
 	}
+
+
+
 	public void setBillingDays(int billingDays) {
-		BillingDays = billingDays;
+		this.billingDays = billingDays;
 	}
+
+
+
 	public String getActualtype() {
 		return Actualtype;
 	}
+
+
+
 	public void setActualtype(String actualtype) {
 		Actualtype = actualtype;
 	}
-	public PreviousMeterRead getPreviousMeterRead() {
-		return PreviousMeterRead;
-	}
-	public void setPreviousMeterRead(PreviousMeterRead previousMeterRead) {
-		PreviousMeterRead = previousMeterRead;
-	}
-	public CurrentMeterRead getCurrentMeterRead() {
-		return CurrentMeterRead;
-	}
-	public void setCurrentMeterRead(CurrentMeterRead currentMeterRead) {
-		CurrentMeterRead = currentMeterRead;
-	}
+
+
+
 	public int getMeterMultiplier() {
-		return MeterMultiplier;
+		return meterMultiplier;
 	}
+
+
+
 	public void setMeterMultiplier(int meterMultiplier) {
-		MeterMultiplier = meterMultiplier;
+		this.meterMultiplier = meterMultiplier;
 	}
+
+
+
 	public int getBilledUsage() {
-		return BilledUsage;
+		return billedUsage;
 	}
+
+
+
 	public void setBilledUsage(int billedUsage) {
-		BilledUsage = billedUsage;
+		this.billedUsage = billedUsage;
 	}
+
+
+
 	public int getDemand() {
-		return Demand;
+		return demand;
 	}
+
+
+
 	public void setDemand(int demand) {
-		Demand = demand;
+		this.demand = demand;
 	}
+
+
+
 	public int compareTo(AccountDetails o) {
 		// TODO Auto-generated method stub
-		if(this.customer.getCustomerId() == o.getCustomer().getCustomerId())
+		if(this.getMeterNumber() == o.getMeterNumber())
 			return 0;
-		else if(this.customer.getCustomerId() > o.getCustomer().getCustomerId())
+		else if(this.getMeterNumber() > o.getMeterNumber())
 			return 1;
 		else
 			return -1;

@@ -18,82 +18,94 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.ambit.pojos.AccountDetails;
 import com.ambit.pojos.AccountNotFoundException;
 
-
 @RequestMapping("/ambitEnergy")
 @RestController
-public class AmbitEnergyController 
-{
+public class AmbitEnergyController {
 	@Autowired
 	private AccountDetailsDaoService service;
-	
-	
-	@GetMapping(path="/allaccounts")
-	public List<AccountDetails> getAllAccountDetails()
-	{
+
+	@Autowired
+	private AmbitJpaRep ambitJpaRep;
+
+	@GetMapping(path = "/allaccounts")
+	public List<AccountDetails> getAllAccountDetails() {
 		System.out.println("inside ");
 		return service.findAll();
 	}
-	
-	@GetMapping(path="/health")
-	public String checkHealth()
-	{
+
+	@GetMapping(path = "/health")
+	public String checkHealth() {
 		return "health is ok";
 	}
-	
-	@GetMapping(path="/singleaccount/{meterNumber}")
-	public AccountDetails getOneAccountDetails(@PathVariable int meterNumber)
-	{
-		
-		AccountDetails acc=service.findOne(meterNumber);
-		
-		if(acc==null)
-		throw new AccountNotFoundException("meterNumber-"+ meterNumber)	;
 
-	    return acc;
+	@GetMapping(path = "/singleaccount/{meter_Number}")
+	public AccountDetails getOneAccountDetails(@PathVariable int meter_Number) {
+
+		AccountDetails acc = service.findOne(meter_Number);
+
+		if (acc == null)
+			throw new AccountNotFoundException("meterNumber-" + meter_Number);
+
+		return acc;
 	}
-	
-	@PostMapping(path="/saveAccountdetails")
-	public ResponseEntity<Object> saveAccountdetails(@RequestBody AccountDetails accountdetails)
-	{
-		AccountDetails acc=service.save(accountdetails);
-		
-		URI location=ServletUriComponentsBuilder.fromCurrentRequest().path("/{meterNumber}").buildAndExpand(acc.getMeterNumber()).toUri();
-		
-		
+
+	@PostMapping(path = "/saveAccountdetails")
+	public ResponseEntity<Object> saveAccountdetails(@RequestBody AccountDetails accountdetails) {
+
+		AccountDetails acc = service.save(accountdetails);
+
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{meter_Number}")
+				.buildAndExpand(acc.getMeterNumber()).toUri();
+
 		return ResponseEntity.created(location).build();
-		
-		
-	}
-	
-	
-	@DeleteMapping(path="/deleteaccount/{customerId}")
-	public void removeAccount(@PathVariable  int customerId)
-	{
 
-		AccountDetails account=service.deleteById(customerId);
-		
-		if(account==null)
-			throw new AccountNotFoundException("customerId"+ customerId);
 	}
-	
-	
-	@PutMapping(path="/updateaccount")	
-	public void update(@RequestBody AccountDetails accountDetails)
-	{
-		int customerId=accountDetails.getCustomer().getCustomerId();
-		AccountDetails oldAccountdetails=service.findOne(customerId);
-	
-		if(oldAccountdetails==null)
-		{
-			throw new AccountNotFoundException("customerId" +customerId);
-		}
-		else{
-			service.deleteById(oldAccountdetails.getCustomer().getCustomerId());
+
+	@DeleteMapping(path = "/deleteaccount/{meter_Number}")
+	public void removeAccount(@PathVariable int meter_Number) {
+
+		AccountDetails account = service.deleteById(meter_Number);
+
+		if (account == null)
+			throw new AccountNotFoundException("meter_Number" + meter_Number);
+	}
+
+	@PutMapping(path = "/updateaccount")
+	public void update(@RequestBody AccountDetails accountDetails) {
+		int meter_Number = accountDetails.getMeterNumber();
+		AccountDetails oldAccountdetails = service.findOne(meter_Number);
+
+		if (oldAccountdetails == null) {
+			throw new AccountNotFoundException("meter_Number" + meter_Number);
+		} else {
+			service.deleteById(oldAccountdetails.getMeterNumber());
 			service.save(accountDetails);
 		}
-	} 
-	
-	
+	}
+
+	@PostMapping(path = "/oracle-insert")
+	public void oracleInsert(@RequestBody AccountDetails accountDetails) {
+		ambitJpaRep.save(accountDetails);
+	}
+
+	@DeleteMapping(path = "/oracle-delete/{meter_Number}")
+	public void oracleDelete(@PathVariable int meter_Number) {
+		ambitJpaRep.deleteById(meter_Number);
+	}
+
+	@GetMapping(path = "/oracle-getAllAccounts")
+	public List<AccountDetails> getAllAccounts() {
+
+		return ambitJpaRep.findAll();
+
+	}
+
+//	@GetMapping(path = "/oracle-getoneAccount/{meter_Number")
+//	public List<AccountDetails> getAllAccounts() {
+//
+//		return ambitJpaRep.findAll();
+//
+//	}
 	
 
 }

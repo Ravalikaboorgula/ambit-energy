@@ -9,10 +9,10 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.ambit.pojos.AccountDetails;
-import com.ambit.pojos.Address;
+/*import com.ambit.pojos.Address;
 import com.ambit.pojos.CurrentMeterRead;
 import com.ambit.pojos.Customer;
-import com.ambit.pojos.PreviousMeterRead;
+import com.ambit.pojos.PreviousMeterRead;*/
 
 @Component
 public class AccountDetailsDaoService {
@@ -23,23 +23,17 @@ public class AccountDetailsDaoService {
 
 	private static int meternumCount = 103;
 
-	private static int customerCount = 3;
+	
 
 	// private static List<Customer> customersList = new ArrayList<Customer>();
 
 	static {
 
-		account.add(new AccountDetails(101, 70, "jhfh", new PreviousMeterRead(new Date(), 87860),
-				new CurrentMeterRead(new Date(), 65945), 4046, 8787, 788,
-				new Customer(1, new Address("7200 preston rd", 1812, "plano", "texas", 75024))));
+		account.add(new AccountDetails(101, 70, "jhfh", 4046, 8787, 788, "hello"));
 
-		account.add(new AccountDetails(102, 78, "jhfh", new PreviousMeterRead(new Date(), 87890),
-				new CurrentMeterRead(new Date(), 6545), 4546, 787, 788,
-				new Customer(2, new Address("7200 preston rd", 1812, "plano", "texas", 75024))));
+		account.add(new AccountDetails(102, 78, "jhfh", 4546, 787, 788, "ewrwe"));
 
-		account.add(new AccountDetails(103, 5609, "fjhgh", new PreviousMeterRead(new Date(), 9900),
-				new CurrentMeterRead(new Date(), 78), 665, 898, 45,
-				new Customer(3, new Address("9200 preston rd", 1912, "plano", "texas", 70024))));
+		account.add(new AccountDetails(103, 5609, "fjhgh", 665, 898, 45, "sdfsdf"));
 
 	}
 
@@ -50,7 +44,7 @@ public class AccountDetailsDaoService {
 
 	public AccountDetails findOne(int id) {
 		for (AccountDetails accountdetails : account) {
-			if (accountdetails.getCustomer().getCustomerId() == id) {
+			if (accountdetails.getMeterNumber() == id) {
 				return accountdetails;
 			}
 		}
@@ -59,9 +53,9 @@ public class AccountDetailsDaoService {
 	}
 
 	public AccountDetails save(AccountDetails accountdetails) {
-		if (accountdetails.getCustomer().getCustomerId() == 0) {
+		if (accountdetails.getMeterNumber() == 0) {
 
-			accountdetails.getCustomer().setCustomerId(++customerCount);
+			
 			accountdetails.setMeterNumber(++meternumCount);
 
 		}
@@ -77,7 +71,7 @@ public class AccountDetailsDaoService {
 
 			AccountDetails account = iterator.next();
 
-			if (account.getCustomer().getCustomerId() == customerId) {
+			if (account.getMeterNumber() == customerId) {
 				iterator.remove();
 
 				return account;
@@ -92,7 +86,7 @@ public class AccountDetailsDaoService {
 	// 1 johnson smith plano tx Submit
 	public AccountDetails updateAccount(AccountDetails accountDetails) {
 		for (AccountDetails oldAccount : account) {
-			if (oldAccount.getCustomer().getCustomerId() == accountDetails.getCustomer().getCustomerId()) {
+			if (oldAccount.getMeterNumber() == accountDetails.getMeterNumber()) {
 				account.remove(oldAccount);
 				account.add(accountDetails);
 			}
