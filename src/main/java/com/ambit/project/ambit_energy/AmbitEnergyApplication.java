@@ -11,9 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("accountDetailsDao")
-@EntityScan("com.ambit.pojos")
-@EnableJpaRepositories("accountDetailsDao")
+/*@ComponentScan("accountDetailsDao")
+@EntityScan("accountDetailsDao.model")
+@EnableJpaRepositories("accountDetailsDao")*/
 public class AmbitEnergyApplication {
 
 	public static void main(String[] args) {
