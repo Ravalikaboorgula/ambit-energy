@@ -1,4 +1,4 @@
-package exception;
+package com.ambit.project.ambit_energy.exception;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.ambit.pojos.AccountNotFoundException;
+import com.ambit.project.ambit_energy.accountDetailsDao.model.AccountNotFoundException;
 
 @ControllerAdvice
 @RestController

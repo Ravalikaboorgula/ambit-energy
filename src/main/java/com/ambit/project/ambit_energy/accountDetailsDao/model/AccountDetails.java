@@ -1,4 +1,4 @@
-package com.ambit.pojos;
+package com.ambit.project.ambit_energy.accountDetailsDao.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

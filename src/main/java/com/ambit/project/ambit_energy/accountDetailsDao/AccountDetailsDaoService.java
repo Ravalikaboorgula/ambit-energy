@@ -1,4 +1,4 @@
-package accountDetailsDao;
+package com.ambit.project.ambit_energy.accountDetailsDao;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,11 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.ambit.pojos.AccountDetails;
-/*import com.ambit.pojos.Address;
-import com.ambit.pojos.CurrentMeterRead;
-import com.ambit.pojos.Customer;
-import com.ambit.pojos.PreviousMeterRead;*/
+import com.ambit.project.ambit_energy.accountDetailsDao.model.AccountDetails;
 
 @Component
 public class AccountDetailsDaoService {
@@ -22,7 +18,10 @@ public class AccountDetailsDaoService {
 	private static List<String> str = new ArrayList<String>();
 
 	private static int meternumCount = 103;
-
+	
+	int []iuiui={1,3,9,6,2};
+	static AccountDetails[] jk ={new AccountDetails(101, 70, "jhfh", 4046, 8787, 788, "hello"),
+			new AccountDetails(101, 70, "jhfh", 4046, 8787, 788, "dfgdfg")};
 	
 
 	// private static List<Customer> customersList = new ArrayList<Customer>();
@@ -34,6 +33,8 @@ public class AccountDetailsDaoService {
 		account.add(new AccountDetails(102, 78, "jhfh", 4546, 787, 788, "ewrwe"));
 
 		account.add(new AccountDetails(103, 5609, "fjhgh", 665, 898, 45, "sdfsdf"));
+		
+		account.add(2, new AccountDetails(102, 78, "modify", 4546, 787, 788, "ewrwe"));
 
 	}
 

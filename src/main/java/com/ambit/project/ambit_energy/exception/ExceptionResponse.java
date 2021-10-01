@@ -1,4 +1,4 @@
-package exception;
+package com.ambit.project.ambit_energy.exception;
 
 import java.util.Date;
 

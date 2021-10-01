@@ -1,4 +1,4 @@
-package accountDetailsDao;
+package com.ambit.project.ambit_energy.accountDetailsDao;
 
 import java.net.URI;
 import java.util.List;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.ambit.pojos.AccountDetails;
-import com.ambit.pojos.AccountNotFoundException;
+import com.ambit.project.ambit_energy.accountDetailsDao.model.AccountDetails;
+import com.ambit.project.ambit_energy.accountDetailsDao.model.AccountNotFoundException;
 
 @RequestMapping("/ambitEnergy")
 @RestController
