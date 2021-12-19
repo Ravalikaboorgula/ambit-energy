@@ -1,11 +1,10 @@
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/accountDetailsDao/AccountDetailsDaoService.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/AccountNotFoundException.java
-/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/CurrentMeterRead.java
+/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/test/TestInterface.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/accountDetailsDao/AmbitEnergyController.java
+/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/accountDetailsDao/AmbitJpaRep.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/exception/ExceptionResponse.java
-/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/PreviousMeterRead.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/project/ambit_energy/AmbitEnergyApplication.java
-/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/Address.java
-/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/Customer.java
+/Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/accountDetailsDao/filtering/SomeBean.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/exception/CustomisedResponseEntityExceptionHandler.java
 /Users/shivaboorgula/Documents/Spring boot workspace/ambit-energy/src/main/java/com/ambit/pojos/AccountDetails.java

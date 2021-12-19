@@ -1,11 +1,13 @@
+test/Car.class
 com/ambit/pojos/AccountDetails.class
 exception/CustomisedResponseEntityExceptionHandler.class
+test/Vehicle.class
+test/Truck.class
 com/ambit/project/ambit_energy/AmbitEnergyApplication.class
+test/TestInterface.class
 accountDetailsDao/AccountDetailsDaoService.class
 exception/ExceptionResponse.class
-com/ambit/pojos/Address.class
-com/ambit/pojos/CurrentMeterRead.class
-com/ambit/pojos/Customer.class
+accountDetailsDao/filtering/SomeBean.class
+accountDetailsDao/AmbitJpaRep.class
 com/ambit/pojos/AccountNotFoundException.class
-com/ambit/pojos/PreviousMeterRead.class
 accountDetailsDao/AmbitEnergyController.class
