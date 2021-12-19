@@ -116,6 +116,21 @@ public class AmbitEnergyController {
 
 
 	}
+	@PutMapping(path = "/updateaccountdb")
+	public void updateDBRecord(@RequestBody AccountDetails accountDetails) {
+		int meter_Number = accountDetails.getMeterNumber();
+		AccountDetails oldAccountdetails = ambitJpaRep.getOne(meter_Number);
+
+		if (oldAccountdetails == null) {
+			throw new AccountNotFoundException("meter_Number" + meter_Number);
+		} else {
+			ambitJpaRep.deleteById(meter_Number);
+			ambitJpaRep.save(accountDetails);
+			
+		}
+	}
+	
+	
 	
 	
 	

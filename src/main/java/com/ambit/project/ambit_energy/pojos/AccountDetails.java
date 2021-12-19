@@ -41,7 +41,7 @@ public class AccountDetails implements Comparable<AccountDetails> {
 	}
 
 	public AccountDetails(Integer meter_Number, int billingDays, String actualtype, int meterMultiplier,
-			int billedUsage, int demand) {
+			int billedUsage, int demand, String string) {
 		this.meter_Number = meter_Number;
 		this.billingDays = billingDays;
 		this.actualtype = actualtype;

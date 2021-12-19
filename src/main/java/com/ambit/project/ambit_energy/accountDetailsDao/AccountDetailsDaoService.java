@@ -21,15 +21,15 @@ public class AccountDetailsDaoService {
 
 	// private static List<Customer> customersList = new ArrayList<Customer>();
 
-	//static {
+	static {
 
-		//account.add(new AccountDetails(101, 70, "jhfh", 4046, 8787, 788, 56464, "hello"));
+		account.add(new AccountDetails(101, 70, "jhfh", 4046, 8787, 788, "hello"));
 
-		//account.add(new AccountDetails(102, 78, "jhfh", 4546, 787, 788, 56765, "ewrwe"));
+		account.add(new AccountDetails(102, 78, "jhfh", 4546, 787, 788, "ewrwe"));
 
-		//account.add(new AccountDetails(103, 5609, "fjhgh", 665, 898, 45, 6586778, "sdfsdf"));
+		account.add(new AccountDetails(103, 5609, "fjhgh", 665, 898, 45, "sdfsdf"));
 
-	//}
+	}
 
 	public List<AccountDetails> findAll() {
 		Collections.sort(account);

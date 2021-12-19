@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "3abaf113-ec73-453b-abed-03c8b99dc51c",
+		"name": "Ambit Operations Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var baseUrl = \"http://localhost:8083/ambit-energy\";",
+							"postman.setGlobalVariable(\"baseUrl\", baseUrl);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/ambit-energy/allaccounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ambit-energy",
+						"allaccounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Accounts from db",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var baseUrl = \"http://localhost:8083/ambitEnergy\";",
+							"postman.setGlobalVariable(\"baseUrl\", baseUrl);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/ambit-energy/oracle-getAllAccounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ambit-energy",
+						"oracle-getAllAccounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/ambit-energy/oracle-getAccount/111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ambit-energy",
+						"oracle-getAccount",
+						"111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/allaccounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"allaccounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\": {\n        \"address\": {\n            \"road\": \"2500 preston rd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"billingDays\": 70,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 87860\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 65945\n    },\n    \"meterMultiplier\": 4046,\n    \"billedUsage\": 8787,\n    \"demand\": 788\n},\n{\n    \"customer\": {\n        \"customerId\": 2,\n        \"address\": {\n            \"road\": \"7200 preston rd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"meterNumber\": 102,\n    \"billingDays\": 78,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 87890\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 6545\n    },\n    \"meterMultiplier\": 4546,\n    \"billedUsage\": 787,\n    \"demand\": 788\n},\n{\n    \"customer\": {\n        \"customerId\": 3,\n        \"address\": {\n            \"road\": \"9200 preston rd\",\n            \"aptNo\": 1912,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 70024\n        }\n    },\n    \"meterNumber\": 103,\n    \"billingDays\": 5609,\n    \"actualtype\": \"fjhgh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 9900\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 78\n    },\n    \"meterMultiplier\": 665,\n    \"billedUsage\": 898,\n    \"demand\": 45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/saveAccountdetails",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"saveAccountdetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an account DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\": {\n        \"address\": {\n            \"road\": \"2500 preston rd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"billingDays\": 70,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 87860\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 65945\n    },\n    \"meterMultiplier\": 4046,\n    \"billedUsage\": 8787,\n    \"demand\": 788\n},\n{\n    \"customer\": {\n        \"customerId\": 2,\n        \"address\": {\n            \"road\": \"7200 preston rd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"meterNumber\": 102,\n    \"billingDays\": 78,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 87890\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 6545\n    },\n    \"meterMultiplier\": 4546,\n    \"billedUsage\": 787,\n    \"demand\": 788\n},\n{\n    \"customer\": {\n        \"customerId\": 3,\n        \"address\": {\n            \"road\": \"9200 preston rd\",\n            \"aptNo\": 1912,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 70024\n        }\n    },\n    \"meterNumber\": 103,\n    \"billingDays\": 5609,\n    \"actualtype\": \"fjhgh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 9900\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.342+00:00\",\n        \"read\": 78\n    },\n    \"meterMultiplier\": 665,\n    \"billedUsage\": 898,\n    \"demand\": 45\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/oracle-insert",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"oracle-insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\": {\n        \"customerId\": 2,\n        \"address\": {\n            \"road\": \"main blvd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"billingDays\": 30,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 87860\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 65945\n    },\n    \"meterMultiplier\": 4046,\n    \"billedUsage\": 8787,\n    \"demand\": 788\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/updateaccount",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"updateaccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccount DB",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer\": {\n        \"customerId\": 2,\n        \"address\": {\n            \"road\": \"main blvd\",\n            \"aptNo\": 1812,\n            \"city\": \"plano\",\n            \"state\": \"texas\",\n            \"zipcode\": 75024\n        }\n    },\n    \"billingDays\": 30,\n    \"actualtype\": \"jhfh\",\n    \"previousMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 87860\n    },\n    \"currentMeterRead\": {\n        \"date\": \"2021-08-27T21:18:10.341+00:00\",\n        \"read\": 65945\n    },\n    \"meterMultiplier\": 4046,\n    \"billedUsage\": 8787,\n    \"demand\": 788\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/updateaccount",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"updateaccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete  account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/deleteaccount/4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"deleteaccount",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete  account in DB",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/oracle-delete/101",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"oracle-delete",
+						"101"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "{{baseurl}}",
+			"value": ""
+		}
+	]
+}
